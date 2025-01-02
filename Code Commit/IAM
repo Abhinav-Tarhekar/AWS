@@ -1,0 +1,7 @@
+Created 3 Group's in IAM
+
+1.Developer 
+2.Admin
+3.Tester
+
+Attached the Policy to the Group and added user in that group
