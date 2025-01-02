@@ -1,0 +1,20 @@
+Worked on 
+
+a. Created a Email Notification Event Trigger
+
+In a case of deleting a branch it will send the email to a Infra Lead will all the details
+
+Steps:
+ 1. Create a SNS Topic & add subscription with email of Infra Lead
+ 2. Create Notification rule which get trigger on Deletion of branch
+ 3. Add the target as a SNS Topic which created
+
+b. Created a Lambda Function trigger 
+
+To Capture all the action performed on Code Commit Repos like commit, branch, merge etc
+Send them to Cloudwatch for Tracking purpose
+
+Steps:
+  1. Create a Trigger with all the repo envents and service details select Lambda Function
+  2. Written a lambda function and passed parameter using the Code commit API Refrence
+  3. Like "repositoryName", "branchName", "pullRequest" etc
