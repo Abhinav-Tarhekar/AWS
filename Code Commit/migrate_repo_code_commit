@@ -1,0 +1,10 @@
+Step 1 : We have to clone the Existing Repo
+
+Cmd: git clone --mirror (repo link) (name of destination repo in aws)
+
+This command will copy all the hooks,refs,branches the entire repo
+
+Step 2 : Push the git repo to AWS codecommit Repo 
+
+Cmd: git push (ssh url of the aws codecommit repo) --all
+
