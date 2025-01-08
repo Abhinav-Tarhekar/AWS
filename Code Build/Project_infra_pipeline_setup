@@ -1,0 +1,27 @@
+In-place Deployment
+
+Step 1:- Create a Service Role with policy AWSCodeDeployRole & EC2 Auto Scaling groups to deploy your application & Application Load balancer
+
+step 2:- Select the Application to Deploy & Create a Application in CodeDeploy 
+
+step 3:- Create deployment group and Select ServiceRole, Deployment type In-place, Auto Scaling group & Load balancer (Set Triggers & Alarms) 
+            (rollback on failure & alarm thresholds are met)
+
+step 4:- Create deployment & Revision location: Enter the path of the project
+
+step 5:- It will deploy and for triage use Events of Deployment.
+
+Blue-green Deployment
+
+Step 1:- Select the Application to Deploy & Create deployment group (Configuration of Deployment for granular control)
+
+step 2:- Create deployment group and Select ServiceRole, Deployment type Blue-green, Environment configuration Auto Scaling group & 
+            choose Traffic rerouting & instances termination  (Set them accordingly)
+
+step 3:- Create deployment & Revision location: Enter the path of the project
+
+
+
+
+
+
