@@ -1,0 +1,10 @@
+Step 1:- Click on Application you want to Rollback 
+
+step 2:- Create a CodeDeploy Deployment gorup named Rollback Select the Service role &
+            Deployment type In-place & Environment configuration: Amazon EC2 Auto Scaling groups (where application is Deployed)
+
+step 3:- Create a CodeDeploy Deployment Select Application & Deployment group:Rollback & Select Revision location:jar of Project
+            Additional deployment behavior settings / Content options: Overwrite the content
+              Click Create deployment. It will take about 10 minutes to finish
+
+Note we can also change the instance by registering them in load balancer pointing to new application in case of failure for quick DisterRecovery.       
