@@ -1,0 +1,35 @@
+Steps 1:- Create an Admin User Role
+
+      a) Created user named eks-user attched policy AdministratorAccess.
+      b) Select eks-user under Security credentials tab Create Access keys
+
+Step 2:- Create and Connect to an EC2 Instance
+
+      a) Created EC2 named eks-admin AMI as amazon linux & t3.medium & admin-key
+      b) Connect to eks-admin instance
+
+Step 3:- Set Up the EKS Environment
+
+      a) Download AWS CLI 2 by :- curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+      b) sudo ./aws/install --bin-dir /usr/bin --install-dir /usr/bin/aws-cli --update
+      c) aws --version -- check version
+      d) Log into the AWS environment on instance by aws configure provide the keys access & screat
+
+Step 4:- Download kubectl & eksctl
+
+      a) kubectl download by :- curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.25.6/2023-01-30/bin/linux/amd64/kubectl
+      b) chmod +x ./kubectl : Add execution permissions to the file
+      c) Create a new parent directory and move the binary to it
+              mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin
+      d) eksctl download by :- curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+      e) sudo mv /tmp/eksctl /usr/local/bin -- Move the files to the directory
+      f) eksctl version 
+
+Step 5:- Create the cluster myeks
+
+      a) eksctl create cluster --name myeks --region us-east-1 --zones=us-east-1a,us-east-1b --nodegroup-name eks-workers --node-type t3.medium --nodes 2 --nodes-min 2 --nodes-max 4 --managed
+            Note: It will take several minutes (up to 20) to create the cluster.
+      b) For connecting eks cluster:-
+            aws eks update-kubeconfig --name myeks --region us-east-1  
+      c) Check running cluster :-
+            eksctl get cluster 
